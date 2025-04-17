@@ -1,0 +1,52 @@
+{
+    "title": "Application Development",
+    "imageUrl": "/images/dev.png",
+    "summary": "Nava Tech design and develops well-designed and user-friendly applications for both internal and external users.",
+    "appTypes": [
+        {
+            "name": "Web apps: Internal use",
+            "description": "We develop web apps for internal use for your organization with functionalities like HRMS, attendance, project management, and more."
+        },
+        {
+            "name": "Web apps: customer-facing",
+            "description": "We develop websites, web apps, and mobile applications for end-user purposes with commercial solutions to track and improve business growth."
+        },
+        {
+            "name": "Mobile applications",
+            "description": "Our team develops mobile apps compatible with iOS and Android, tablets, wearables, and IoT features with tech integrations such as AR, AI, VR, and Voice recognition."
+        },
+        {
+            "name": "Desktop applications",
+            "description": "Desktop apps ensure fast response, data security, network independency, and secured transaction, developed in C++, Python, and .Net."
+        }
+    ],
+    "architecturePatterns": [
+        {
+            "name": "Tiered architecture",
+            "benefits": ["Easy data connection", "Quick development", "Enhanced security", "Independent scalability"]
+        },
+        {
+            "name": "Reactive architecture",
+            "benefits": ["Suitable for message-driven apps", "Quick responsiveness", "Stability regardless of network conditions"]
+        },
+        {
+            "name": "Microservices architecture",
+            "benefits": ["Split app into functional units", "Continuous deployment", "High performance", "Automated load management"]
+        }
+    ],
+    "services": [
+        {
+            "name": "Application consulting",
+            "target": "ISVs, startups",
+            "activities": ["Market research", "Competitor analysis", "Concept and USP development", "Software requirement specifications", "Architecture design", "Cost breakdown"]
+        },
+        {
+            "name": "Application development",
+            "activities": ["UX research", "UI design", "Agile development", "Testing", "PI performance reporting"]
+        },
+        {
+            "name": "Application modernization & evolution",
+            "activities": ["Cloud migration", "Reengineering", "Code refactoring", "Advanced feature implementation", "Containerization"]
+        }
+    ]
+}
