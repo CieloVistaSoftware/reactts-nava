@@ -23,4 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 .vscode*
 /frontend-notworking-reactTS
-frontend-reactjs//node_modules
+
+node_modules*
