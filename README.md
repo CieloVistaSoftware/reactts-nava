@@ -1,70 +1,178 @@
-# Getting Started with Create React App
+# Nava Tech - Modern React TypeScript Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive website built with React, TypeScript, and Vite. This project showcases a professional business website with smooth scrolling, optimized performance, and a beautiful UI.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- Built with React 18 and TypeScript
+- Vite for fast development and building
+- Responsive design that works on all devices
+- Smooth scrolling with section height consistency
+- Modern UI with beautiful transitions
+- Component-based architecture
+- Backend API integration with Express
+- Visual regression testing support
+- Comprehensive test suite
 
-### `npm start`
+## 🏗 Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Directory/File | Description |
+|---------------|-------------|
+| `/src` | Source code for the React application |
+| `/src/components` | Reusable React components |
+| `/src/pages` | Page components and routing |
+| `/src/hooks` | Custom React hooks |
+| `/src/utils` | Utility functions and helpers |
+| `/backend` | Express.js backend server code |
+| `/public` | Static assets and HTML template |
+| `/build` | Production build output |
+| `/test` | Test configurations and utilities |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Key Components
 
-### `npm test`
+| Component | Purpose |
+|-----------|----------|
+| `Layout.tsx` | Main layout wrapper with header and footer |
+| `Header.tsx` | Navigation and branding component |
+| `WorkProcessSection.tsx` | Work process showcase section |
+| `ServicesSection.tsx` | Services showcase with cards |
+| `TeamSection.tsx` | Team member showcase |
+| `AboutSection.tsx` | Company information section |
+| `ContactSection.tsx` | Contact form and information |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 Setup and Installation
 
-### `npm run build`
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd reactts-nava
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server:
+```bash
+npm run dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. For backend development, in a separate terminal:
+```bash
+cd backend
+npm install
+npm start
+```
 
-### `npm run eject`
+## 🎨 Design Decisions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Component Architecture
+- All components are written in TypeScript for type safety
+- Consistent 5rem section heights for smooth scrolling
+- CSS-in-JS for component-specific styling
+- Responsive design using flexbox and CSS Grid
+- Modular component structure for reusability
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Performance Optimizations
+- Code splitting for optimized loading
+- Image optimization and lazy loading
+- Vite for fast development and production builds
+- Minimized bundle size
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### User Experience
+- Smooth scrolling behavior
+- Consistent navigation experience
+- Responsive design for all devices
+- Loading states and error handling
+- Accessible design patterns
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧪 Testing
 
-## Learn More
+The project includes several types of tests:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Unit Tests:
+```bash
+npm test
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Visual Regression Tests:
+```bash
+npm run test:visual
+```
 
-### Code Splitting
+3. Component Tests:
+```bash
+npm run test:component
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📚 Available Scripts
 
-### Analyzing the Bundle Size
+| Command | Purpose |
+|---------|----------|
+| `npm run dev` | Start development server |
+| `npm run build` | Create production build |
+| `npm test` | Run test suite |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+| `npm run format` | Format code with Prettier |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔧 Configuration
 
-### Making a Progressive Web App
+### Environment Variables
+Create a `.env` file in the root directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```env
+VITE_API_URL=http://localhost:3000
+VITE_EMAIL_SERVICE_KEY=your_email_service_key
+```
 
-### Advanced Configuration
+### Backend Configuration
+Configure backend settings in `backend/config.js`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```javascript
+module.exports = {
+  port: process.env.PORT || 3000,
+  emailService: process.env.EMAIL_SERVICE,
+  // other configurations
+}
+```
 
-### Deployment
+## 📱 Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The website is fully responsive with breakpoints:
+- Mobile: < 768px
+- Tablet: 768px - 1024px
+- Desktop: > 1024px
 
-### `npm run build` fails to minify
+## 🚀 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Build the project:
+```bash
+npm run build
+```
+
+2. The `build` directory can be deployed to any static hosting service:
+- Vercel
+- Netlify
+- AWS S3
+- GitHub Pages
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- React Team
+- Vite Team
+- TypeScript Team
+- All contributors and maintainers
