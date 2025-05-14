@@ -1,130 +1,226 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+interface BlogPost {
+  image: string;
+  category: string;
+  title: string;
+  description: string;
+  link: string;
+}
+
+const BlogCard: React.FC<BlogPost> = ({ image, category, title, description, link }) => (
+  <article style={{
+    flex: '1 1 300px',
+    maxWidth: '400px',
+    backgroundColor: '#fff',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+    cursor: 'pointer',
+    transform: 'translateY(0)'
+  }}
+  onMouseEnter={e => {
+    const target = e.currentTarget;
+    target.style.transform = 'translateY(-5px)';
+    target.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+  }}
+  onMouseLeave={e => {
+    const target = e.currentTarget;
+    target.style.transform = 'translateY(0)';
+    target.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+  }}>
+    <div style={{
+      position: 'relative',
+      paddingTop: '60%'
+    }}>
+      <img 
+        src={image}
+        alt={title}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover'
+        }}
+      />
+      <span style={{
+        position: 'absolute',
+        left: '1rem',
+        bottom: '1rem',
+        padding: '0.25rem 1rem',
+        backgroundColor: '#fff',
+        color: '#333',
+        borderRadius: '4px',
+        fontSize: '0.875rem'
+      }}>{category}</span>
+    </div>
+
+    <div style={{
+      padding: '2rem',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1rem'
+    }}>
+      <header>
+        <h3 style={{
+          margin: 0,
+          fontSize: '1.5rem',
+          lineHeight: 1.3
+        }}>
+          <Link 
+            to={link} 
+            style={{
+              color: '#333',
+              textDecoration: 'none',
+              transition: 'color 0.2s ease'
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.color = '#666';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.color = '#333';
+            }}
+          >
+            {title}
+          </Link>
+        </h3>
+      </header>
+
+      <p style={{
+        margin: 0,
+        fontSize: '1rem',
+        lineHeight: 1.6,
+        color: '#666'
+      }}>{description}</p>
+
+      <footer>
+        <Link 
+          to={link} 
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            color: '#333',
+            textDecoration: 'none',
+            fontWeight: 500,
+            transition: 'color 0.2s ease'
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.color = '#666';
+            const svg = e.currentTarget.querySelector('svg');
+            if (svg) {
+              svg.style.transform = 'translateX(4px)';
+            }
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.color = '#333';
+            const svg = e.currentTarget.querySelector('svg');
+            if (svg) {
+              svg.style.transform = 'translateX(0)';
+            }
+          }}
+        >
+          Read More
+          <svg 
+            width="16" 
+            height="16" 
+            viewBox="0 0 16 16" 
+            fill="none" 
+            style={{ 
+              marginLeft: '0.5rem',
+              transition: 'transform 0.2s ease'
+            }}
+          >
+            <path 
+              d="M1 8H15M15 8L8 1M15 8L8 15" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Link>
+      </footer>
+    </div>
+  </article>
+);
+
 const BlogSection: React.FC = () => {
-  return (
-    <section className="blog-one">
-      <div className="blog-one__bg" style={{ backgroundImage: 'url(/images/backgrounds/blog-v1-bg.jpg)' }}></div>
-      <div className="container">
-        <div className="sec-title text-center">
-          <h2 className="sec-title__title">Blog</h2>
-        </div>
-        <div className="row">
-          {/* Blog Post 1 */}
-          <div className="col-xl-4 col-lg-4 wow fadeInUp animated" data-wow-delay=".3s">
-            <div className="blog-one__single">
-              <div className="blog-one__single-img">
-                <img src="/images/iDGlogo.jpeg" alt="#" />
-                <div className="text-box">Technology</div>
-              </div>
-              <div className="blog-one__single-content">
-                <ul className="meta-box">
-                  <li>
-                    <div className="icon">
-                      <span className="icon-user3"></span>
-                    </div>
-                    <div className="text">
-                      <p><Link to="#">By Admin</Link></p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="icon">
-                      <span className="icon-comment"></span>
-                    </div>
-                    <div className="text">
-                      <p><Link to="#">12 Comment</Link></p>
-                    </div>
-                  </li>
-                </ul>
+  const blogPosts: BlogPost[] = [
+    {
+      image: '/images/iDGlogo.jpeg',
+      category: 'Technology',
+      title: 'Software Quality - V & V Process',
+      description: 'Take a look at our software quality process',
+      link: '/blog/software-quality'
+    },
+    {
+      image: '/images/logo_transparent.png',
+      category: 'Security',
+      title: 'BigData Testing - Data Matters',
+      description: 'How to test multi-million records and ensure all business requirements are captured and tested properly.',
+      link: '/blog/bigdata-testing'
+    },
+    {
+      image: '/images/logo-1.png',
+      category: 'Software',
+      title: 'Web/App Development',
+      description: 'We have hands-on experience in developing production ready web application or iOS or Android apps.',
+      link: '/blog/web-app-development'
+    }
+  ];
 
-                <h2><Link to="/blog/software-quality">Software Quality </Link><br />
-                  V & V Process
-                </h2>
-                <p>Take a look at our software quality process</p>
-                <div className="btn-box">
-                  <Link to="/blog/software-quality">Read More</Link>
-                </div>
-              </div>
-            </div>
-          </div>
+  return (    <section style={{
+      height: '5rem',
+      position: 'relative',
+      backgroundColor: '#fff'
+    }}>
+      {/* Background decoration */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'url(/images/backgrounds/blog-v1-bg.jpg)',
+        opacity: 0.05,
+        zIndex: 0
+      }} />
 
-          {/* Blog Post 2 */}
-          <div className="col-xl-4 col-lg-4 wow fadeInDown animated" data-wow-delay=".3s">
-            <div className="blog-one__single">
-              <div className="blog-one__single-img">
-                <img src="/images/logo_transparent.png" alt="#" />
-                <div className="text-box">Security</div>
-              </div>
-              <div className="blog-one__single-content">
-                <ul className="meta-box">
-                  <li>
-                    <div className="icon">
-                      <span className="icon-user3"></span>
-                    </div>
-                    <div className="text">
-                      <p><Link to="#">By Admin</Link></p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="icon">
-                      <span className="icon-comment"></span>
-                    </div>
-                    <div className="text">
-                      <p><Link to="#">12 Comment</Link></p>
-                    </div>
-                  </li>
-                </ul>
+      <div style={{
+        position: 'relative',
+        zIndex: 1,
+        maxWidth: '1200px',
+        margin: '0 auto',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '3rem'
+      }}>
+        <header style={{
+          textAlign: 'center'
+        }}>
+          <h2 style={{
+            fontSize: '2.5rem',
+            fontWeight: 600,
+            margin: 0
+          }}>Blog</h2>
+        </header>
 
-                <h2><Link to="/blog/bigdata-testing">BigData Testing
-                  </Link><br />
-                  Data Matters
-                </h2>
-                <p>How to test multi-million records and how to do you know all the business requirment
-                  are cpatured properly and tested properly.</p>
-                <div className="btn-box">
-                  <Link to="/blog/bigdata-testing">Read More</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Blog Post 3 */}
-          <div className="col-xl-4 col-lg-4 wow fadeInUp animated" data-wow-delay=".3s">
-            <div className="blog-one__single">
-              <div className="blog-one__single-img">
-                <img src="/images/logo-1.png" alt="#" />
-                <div className="text-box">Software</div>
-              </div>
-              <div className="blog-one__single-content">
-                <ul className="meta-box">
-                  <li>
-                    <div className="icon">
-                      <span className="icon-user3"></span>
-                    </div>
-                    <div className="text">
-                      <p><Link to="#">By Admin</Link></p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="icon">
-                      <span className="icon-comment"></span>
-                    </div>
-                    <div className="text">
-                      <p><Link to="#">12 Comment</Link></p>
-                    </div>
-                  </li>
-                </ul>
-
-                <h2><Link to="/blog/web-app-development">Web/App Development</Link><br />Let's build software
-                </h2>
-                <p>We have hands-on experience in developing production ready web application or iSO or
-                  Android app.</p>
-                <div className="btn-box">
-                  <Link to="/blog/web-app-development">Read More</Link>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '2rem',
+          justifyContent: 'center'
+        }}>
+          {blogPosts.map((post, index) => (
+            <BlogCard 
+              key={index}
+              {...post}
+            />
+          ))}
         </div>
       </div>
     </section>

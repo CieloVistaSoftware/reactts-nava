@@ -3,150 +3,200 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer-one">
-      <div className="footer-one__bg" style={{ backgroundImage: 'url(/images/fbg.jpg)' }}>
-      </div>
-      <div className="shape1 float-bob-x"><img src="/images/shapes/footer-v1-shape1.png" alt="#" /></div>
-      <div className="shape2 float-bob-y"><img src="/images/shapes/footer-v1-shape2.png" alt="#" /></div>
-      <div className="shape3 float-bob-y"><img src="/images/shapes/footer-v1-shape3.png" alt="#" /></div>
-      <div className="shape4 float-bob-x"><img src="/images/shapes/footer-v1-shape4.png" alt="#" /></div>
+    <footer style={{
+      backgroundColor: '#1a1a1a',
+      color: '#fff',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      {/* Background Image */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'url(/images/fbg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        opacity: 0.1
+      }} />
 
-      <div className="footer-one__top">
-        <div className="container">
-          <div className="row">
+      {/* Main Footer Content */}
+      <div style={{
+        position: 'relative',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '4rem 2rem',
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '2rem',
+        justifyContent: 'space-between'
+      }}>
+        {/* About Section */}
+        <div style={{
+          flex: '1 1 250px',
+          maxWidth: '300px'
+        }}>
+          <h3 style={{
+            fontSize: '1.25rem',
+            marginBottom: '1.5rem',
+            fontWeight: 500
+          }}>About Us</h3>
+          <p style={{
+            fontSize: '1rem',
+            lineHeight: 1.6,
+            color: 'rgba(255,255,255,0.8)',
+            marginBottom: '1rem'
+          }}>
+            Over 20 years of experience we'll ensure you get the best guidance.
+          </p>
+        </div>
 
-            {/* About Us */}
-            <div className="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
-              <div className="footer-one__single footer-one__about">
-                <div className="title-box">
-                  <h3>About Us</h3>
-                </div>
-                <div className="footer-one__about-text">
-                  <p>Over 20 years of experience we'll ensure you get the best guidance.</p>
-                </div>
+        {/* Site Links */}
+        <nav style={{
+          flex: '1 1 200px',
+          maxWidth: '250px'
+        }}>
+          <h3 style={{
+            fontSize: '1.25rem',
+            marginBottom: '1.5rem',
+            fontWeight: 500
+          }}>Site Links</h3>
+          <ul style={{
+            listStyle: 'none',
+            padding: 0,
+            margin: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem'
+          }}>
+            <li><Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>Home</Link></li>
+            <li><Link to="/about" style={{ color: '#fff', textDecoration: 'none' }}>About Us</Link></li>
+            <li><Link to="/services" style={{ color: '#fff', textDecoration: 'none' }}>Services</Link></li>
+            <li><Link to="/team" style={{ color: '#fff', textDecoration: 'none' }}>Team</Link></li>
+            <li><Link to="/contact" style={{ color: '#fff', textDecoration: 'none' }}>Contact Us</Link></li>
+          </ul>
+        </nav>
+
+        {/* Service Links */}
+        <nav style={{
+          flex: '1 1 200px',
+          maxWidth: '250px'
+        }}>
+          <h3 style={{
+            fontSize: '1.25rem',
+            marginBottom: '1.5rem',
+            fontWeight: 500
+          }}>Services</h3>
+          <ul style={{
+            listStyle: 'none',
+            padding: 0,
+            margin: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem'
+          }}>
+            <li><Link to="/services/application-services" style={{ color: '#fff', textDecoration: 'none' }}>Application Services</Link></li>
+            <li><Link to="/services/cyber-security" style={{ color: '#fff', textDecoration: 'none' }}>Cyber Security</Link></li>
+            <li><Link to="/services/digital-marketing" style={{ color: '#fff', textDecoration: 'none' }}>Digital Marketing</Link></li>
+            <li><Link to="/services/software-testing" style={{ color: '#fff', textDecoration: 'none' }}>Software Testing</Link></li>
+            <li><Link to="/services/ui-ux-design" style={{ color: '#fff', textDecoration: 'none' }}>UI/UX Design</Link></li>
+          </ul>
+        </nav>
+
+        {/* Contact Information */}
+        <div style={{
+          flex: '1 1 300px'
+        }}>
+          <h3 style={{
+            fontSize: '1.25rem',
+            marginBottom: '1.5rem',
+            fontWeight: 500
+          }}>Contact Us</h3>
+          
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.5rem'
+          }}>
+            <address style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '1rem',
+              fontStyle: 'normal'
+            }}>
+              <span className="icon-location-filled" style={{ fontSize: '1.25rem', marginTop: '0.25rem' }}></span>
+              <div>
+                <p style={{ margin: '0 0 0.5rem 0' }}>Chennai TN India</p>
+                <p style={{ margin: 0 }}>Phoenix AZ USA</p>
+              </div>
+            </address>
+
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem'
+            }}>
+              <span className="icon-phone-auricular" style={{ fontSize: '1.25rem' }}></span>
+              <div>
+                <p style={{ margin: '0 0 0.25rem 0', color: 'rgba(255,255,255,0.7)' }}>Get In Touch</p>
+                <a href="tel:+917418785163" style={{ color: '#fff', textDecoration: 'none' }}>+91 7418785163</a>
               </div>
             </div>
 
-            {/* Site Links */}
-            <div className="col-xl-2 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s">
-              <div className="footer-one__single footer-one__links">
-                <div className="title-box">
-                  <h3>Site Links</h3>
-                </div>
-                <div className="footer-one__links-box">
-                  <ul className="footer-one__links-list">
-                    <li>
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link to="/about">About Us</Link>
-                    </li>
-                    <li>
-                      <Link to="/blog">Blog</Link>
-                    </li>
-                    <li>
-                      <Link to="/team">Team</Link>
-                    </li>
-                    <li>
-                      <Link to="/contact">Contact Us</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Service Links */}
-            <div className="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s">
-              <div className="footer-one__single footer-one__links">
-                <div className="title-box">
-                  <h3>Site Links</h3>
-                </div>
-                <div className="footer-one__links-box">
-                  <ul className="footer-one__links-list">
-                    <li>
-                      <Link to="/services/application-services">Application Services</Link>
-                    </li>
-                    <li>
-                      <Link to="/services/cyber-security">Cyber Security</Link>
-                    </li>
-                    <li>
-                      <Link to="/services/digital-marketing">Digital Marketing</Link>
-                    </li>
-                    <li>
-                      <Link to="/services/software-testing">Software Testing</Link>
-                    </li>
-                    <li>
-                      <Link to="/services/ui-ux-design">UI/UX Design</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div className="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s">
-              <div className="contact-info-one__single">
-                <div className="icon-box">
-                  <span className="icon-location-filled"></span>
-                </div>
-
-                <div className="content-box">
-                  <h3>Chennai TN India <br /> Phoenix AZ USA</h3>
-                </div>
-              </div>
-              <div className="contact-info-one__single">
-                <div className="icon-box">
-                  <span className="icon-phone-auricular"></span>
-                </div>
-                <br />
-                <div className="content-box">
-                  <p>Get In Touch</p>
-                  <h3><a href="tel:+917418785163">+91 7418785163</a></h3>
-                </div>
-              </div>
-              <div className="contact-info-one__single">
-                <div className="icon-box">
-                  <span className="icon-email2"></span>
-                </div>
-                <br />
-                <div className="content-box">
-                  <p>Quick Email us</p>
-                  <h3><a href="mailto:booknow@navatech.com">booknow@navatech.com</a></h3>
-                </div>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem'
+            }}>
+              <span className="icon-email2" style={{ fontSize: '1.25rem' }}></span>
+              <div>
+                <p style={{ margin: '0 0 0.25rem 0', color: 'rgba(255,255,255,0.7)' }}>Quick Email us</p>
+                <a href="mailto:booknow@navatech.com" style={{ color: '#fff', textDecoration: 'none' }}>booknow@navatech.com</a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="footer-one__bottom">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="footer-one__bottom-inner">
-                <div className="footer-one__bottom-left">
-                  <div className="title-box">
-                    <p>Social </p>
-                  </div>
-
-                  <div className="social-links">
-                    <ul>
-                      <li><a href="#"><span className="icon-facebook"></span></a></li>
-                      <li><a href="#"><span className="icon-twitter"></span></a></li>
-                      <li><a href="#"><span className="icon-pinterest"></span></a></li>
-                      <li><a href="#"><span className="icon-instagram"></span></a></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="footer-one__bottom-right">
-                  <p>&copy; {new Date().getFullYear()} | All Rights Reserved. Developed by <a
-                    href="https://navatech.com/" title="Navatech" target="_blank"
-                    style={{ color: '#fff !important' }}> Nava Tech (P) Ltd </a></p>
-                </div>
-              </div>
+      {/* Footer Bottom */}
+      <div style={{
+        borderTop: '1px solid rgba(255,255,255,0.1)',
+        padding: '1.5rem 2rem'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '1rem'
+        }}>
+          {/* Social Links */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '2rem'
+          }}>
+            <p style={{ margin: 0, color: 'rgba(255,255,255,0.7)' }}>Social</p>
+            <div style={{
+              display: 'flex',
+              gap: '1rem'
+            }}>
+              <a href="#" style={{ color: '#fff', textDecoration: 'none', fontSize: '1.25rem' }}><span className="icon-facebook"></span></a>
+              <a href="#" style={{ color: '#fff', textDecoration: 'none', fontSize: '1.25rem' }}><span className="icon-twitter"></span></a>
+              <a href="#" style={{ color: '#fff', textDecoration: 'none', fontSize: '1.25rem' }}><span className="icon-pinterest"></span></a>
+              <a href="#" style={{ color: '#fff', textDecoration: 'none', fontSize: '1.25rem' }}><span className="icon-instagram"></span></a>
             </div>
           </div>
+
+          {/* Copyright */}
+          <p style={{ margin: 0, color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+            &copy; {new Date().getFullYear()} | All Rights Reserved. Developed by{' '}
+            <a href="https://navatech.com/" style={{ color: '#fff', textDecoration: 'none' }}>Nava Tech (P) Ltd</a>
+          </p>
         </div>
       </div>
     </footer>

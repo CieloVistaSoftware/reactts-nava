@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../layout/Layout';
+import PageHeader from '../layout/PageHeader';
 
 interface ServicePageProps {
   title: string;
@@ -10,44 +11,86 @@ interface ServicePageProps {
 const ServicePage: React.FC<ServicePageProps> = ({ title, content, imageUrl }) => {
   return (
     <Layout>
-      {/* Page Header */}
-      <section className="page-header">
-        <div className="page-header__bg" style={{ backgroundImage: 'url(/images/allpage.jpg)' }}>
-        </div>
-        <div className="container">
-          <div className="page-header__inner text-center">
-            <h2>{title}</h2>
-          </div>
-        </div>
-      </section>
+      <PageHeader title={title} backgroundImage="/images/allpage.jpg" />
 
-      {/* Service Content */}
-      <section className="about-three">
-        <div className="shape5"><img src="/images/shapes/projects-v1-shape5.png" alt="#" /></div>
-        <div className="shape4"><img src="/images/shapes/about-v3-shape3.png" alt="#" /></div>
-        <div className="shape5"><img src="/images/shapes/about-v3-shape4.png" alt="#" /></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="about-three__content drt">
-                <div className="sec-title">
-                  <div className="sec-title__tagline">
-                  </div>
-                  <h2 className="sec-title__title">{title}</h2>
-                </div>
-                <div className="about-three__content-text1 allpageh3">
-                  {content}
-                </div>
-                {imageUrl && (
-                  <div className="service-image">
-                    <img src={imageUrl} className="img-thumbnail" alt={title} width="100%" />
-                  </div>
-                )}
-              </div>
-            </div>
+      <article style={{
+        padding: '4rem 2rem',
+        backgroundColor: '#fff',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Decorative shapes */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          right: 0,
+          width: '150px',
+          height: '150px',
+          opacity: 0.1,
+          backgroundImage: 'url(/images/shapes/projects-v1-shape5.png)',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat'
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '10%',
+          left: 0,
+          width: '150px',
+          height: '150px',
+          opacity: 0.1,
+          backgroundImage: 'url(/images/shapes/about-v3-shape3.png)',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat'
+        }} />
+
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '3rem'
+        }}>
+          <header>
+            <h1 style={{
+              fontSize: '2.5rem',
+              fontWeight: 600,
+              margin: 0,
+              textAlign: 'center'
+            }}>{title}</h1>
+          </header>
+
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '2rem'
+          }}>
+            <div style={{
+              fontSize: '1.125rem',
+              lineHeight: 1.6,
+              color: '#444'
+            }}>{content}</div>
+
+            {imageUrl && (
+              <figure style={{
+                margin: 0,
+                borderRadius: '8px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+              }}>
+                <img 
+                  src={imageUrl} 
+                  alt={title}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block'
+                  }}
+                />
+              </figure>
+            )}
           </div>
         </div>
-      </section>
+      </article>
     </Layout>
   );
 };
