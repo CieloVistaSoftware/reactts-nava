@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Layout from '../components/layout/Layout';
 import HeroSlider from '../components/home/HeroSlider';
 import AboutSection from '../components/home/AboutSection';
@@ -9,20 +9,11 @@ import TeamSection from '../components/home/TeamSection';
 import WorkProcessSection from '../components/home/WorkProcessSection';
 import BlogSection from '../components/home/BlogSection';
 import TestimonialSection from '../components/home/TestimonialSection';
-import { initAllScripts } from '../utils/initScripts';
+import usePageInit from '../hooks/usePageInit';
 
 const HomePage: React.FC = () => {
-  useEffect(() => {
-    // Set page title
-    document.title = 'Nava Tech for Software Development';
-    
-    // Initialize all external JavaScript libraries with a small delay to ensure DOM is ready
-    const timer = setTimeout(() => {
-      initAllScripts();
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, []);
+  // Initialize page scripts and handle preloader
+  usePageInit('Nava Tech for Software Development');
 
   return (
     <Layout>

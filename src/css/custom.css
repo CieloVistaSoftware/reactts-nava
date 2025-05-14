@@ -1,0 +1,138 @@
+/* Custom overrides for header and hero section */
+
+/* Header fixed height adjustments */
+.main-header-one {
+  height: 5rem !important;
+  max-height: 5rem !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+}
+
+/* Top header section */
+.main-header-one__top {
+  height: 2rem !important;
+  min-height: 2rem !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.main-header-one__top-inner {
+  padding: 0 1rem !important;
+}
+
+/* Bottom header section */
+.main-header-one__bottom {
+  height: 3rem !important;
+  min-height: 3rem !important;
+  background: #fff;
+}
+
+.main-header-one__bottom-inner {
+  height: 100% !important;
+  padding: 0 1rem !important;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo adjustments */
+.main-header-one__bottom-left .logo-one {
+  height: 2.5rem !important;
+  padding: 0.25rem 1rem 0.25rem 0 !important;
+}
+
+.main-header-one__bottom-left .logo-one img {
+  height: 100% !important;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Contact info adjustments */
+.main-header__contact-info {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+}
+
+.main-header__contact-info ul {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header__contact-info ul li {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Navigation menu */
+.main-menu .main-menu__list {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.main-menu .main-menu__list > li > a {
+  height: 3rem !important;
+  line-height: 3rem !important;
+  padding: 0 0.75rem !important;
+  font-size: 0.875rem;
+}
+
+/* Hero slider adjustments */
+.hero-slider {
+  margin-top: 0;
+  padding-top: 100px; /* Height of fixed header */
+}
+
+.hero-slider__slide {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-slider__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-slider__content h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.hero-slider__content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .hero-slider {
+    padding-top: 70px;
+  }
+  
+  .hero-slider__content h2 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-slider__content h2 {
+    font-size: 1.5em;
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Test Harness</title>
+  <!-- Include any CSS files your components need -->
+  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="../public/css/style-responsive.css">
+  <link rel="stylesheet" href="../public/vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/vendors/fontawesome/css/all.min.css">
+</head>
+<body>
+  <div id="root"></div>
+  
+  <!-- Scripts -->
+  <script src="../public/vendors/jquery/jquery.min.js"></script>
+  <script src="../public/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- We'll add a script to load our test harness -->
+  <script>
+    // This would be replaced by a bundled version of the test harness
+    document.addEventListener('DOMContentLoaded', function() {
+      const message = document.createElement('div');
+      message.innerHTML = `
+        <div style="text-align: center; padding: 40px; font-family: Arial, sans-serif;">
+          <h2>Component Test Harness</h2>
+          <p>To use the component test harness, please run:</p>
+          <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; display: inline-block; text-align: left;">npm run test:visual</pre>
+          <p>This will start a development server with the component test harness.</p>
+        </div>
+      `;
+      document.getElementById('root').appendChild(message);
+    });
+  </script>
+</body>
+</html>

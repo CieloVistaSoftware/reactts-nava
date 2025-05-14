@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "CommonJS",
+    "outDir": "./",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "typeRoots": ["../node_modules/@types", "./"],
+    "types": ["express", "node"]
+  },
+  "include": ["./**/*.ts", "express.d.ts"],
+  "exclude": ["node_modules"]
+}

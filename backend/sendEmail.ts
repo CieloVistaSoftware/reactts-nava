@@ -1,7 +1,17 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, Router } from 'express';
 import nodemailer from 'nodemailer';
+import * as dotenv from 'dotenv';
 
-const router = express.Router();
+// Load environment variables
+dotenv.config();
+
+// Create a router
+const router = Router();
+
+// Test endpoint
+router.get('/test', (req: Request, res: Response) => {
+  res.json({ message: 'Email API is working!' });
+});
 
 router.post('/send-email', async (req: Request, res: Response) => {
   const { user_name, user_email, mobile, subject, message } = req.body;
@@ -22,15 +32,15 @@ router.post('/send-email', async (req: Request, res: Response) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail', // Use your email service
       auth: {
-        user: 'your-email@gmail.com', // Replace with your email
-        pass: 'your-email-password', // Replace with your email password
+        user: process.env.EMAIL_USER || 'your-email@gmail.com', 
+        pass: process.env.EMAIL_PASS || 'your-email-password',
       },
     });
 
     // Email options
     const mailOptions = {
       from: user_email,
-      to: 'support@idrivenglobal.com',
+      to: process.env.EMAIL_TO || 'support@idrivenglobal.com',
       subject: `New Enquiry For IDG: ${subject}`,
       text: `Name: ${user_name}\nEmail: ${user_email}\nMobile: ${mobile}\nSubject: ${subject}\nMessage: ${message}`,
     };

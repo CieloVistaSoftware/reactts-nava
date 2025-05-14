@@ -1,0 +1,52 @@
+/* Responsive header styles */
+@media only screen and (max-width: 991px) {
+  .main-header-one,
+  .main-header-one__bottom,
+  .main-header-one__bottom-inner {
+    height: 35px;
+  }
+
+  .logo-three a img {
+    height: 25px;
+  }
+
+  .page-header {
+    padding: 15px 0;
+    margin-top: 35px;
+  }
+
+  .page-header__inner h2 {
+    font-size: 20px;
+  }
+
+  .page-wrapper {
+    padding-top: 35px;
+  }
+
+  .main-menu .main-menu__list > li > a {
+    line-height: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main-header-one,
+  .main-header-one__bottom,
+  .main-header-one__bottom-inner {
+    height: 32px;
+  }
+
+  .logo-three a img {
+    height: 22px;
+  }
+
+  .page-header {
+    padding: 12px 0;
+    margin-top: 32px;
+  }
+
+  .page-wrapper {
+    padding-top: 32px;
+  }
+}

@@ -1,5 +1,12 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// Import styles
+import './css/style.css';
+import './css/style-responsive.css';
+import './css/custom.css';
+
+// Import pages
 import HomePage from './pages/HomePage';
 // Import service pages
 import ApplicationDevelopment from './pages/services/ApplicationDevelopment';
@@ -21,6 +28,7 @@ import WebsiteSecurity from './pages/services/WebsiteSecurity';
 import AboutUs from './pages/AboutUs';
 import Team from './pages/Team';
 import ContactUs from './pages/ContactUs';
+import ServicesPage from './pages/ServicesPage';
 
 import './App.css';
 
@@ -33,9 +41,9 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        
-        {/* Main Pages Routes */}
+          {/* Main Pages Routes */}
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/team" element={<Team />} />
         <Route path="/contact" element={<ContactUs />} />
         
